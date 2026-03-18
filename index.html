@@ -28,8 +28,8 @@
 
     .photo-wrap {
       position: relative;
-      width: 300px;
-      height: 300px;
+      width: 350px;
+      height: 350px;
       border-radius: 50%;
       overflow: hidden;
       box-shadow: 0 0 60px rgba(100, 180, 255, 0.25);
@@ -51,24 +51,24 @@
 
     .eye {
       position: absolute;
-      width: 36px;
-      height: 22px;
+      width: 38px;
+      height: 18px;
       background: white;
       border-radius: 50%;
       overflow: hidden;
       mix-blend-mode: lighten;
-      opacity: 0.85;
+      opacity: 0.9;
     }
 
-    /* ⬇ ADJUST THESE to line up with your photo's eyes */
-    .eye-left  { top: 38%; left: 33%; }
-    .eye-right { top: 38%; left: 56%; }
+    /* Tuned to match the glasses-wearing face in FF.png */
+    .eye-left  { top: 36%; left: 34%; }
+    .eye-right { top: 36%; left: 57%; }
 
     .pupil {
       position: absolute;
-      width: 12px;
-      height: 12px;
-      background: #1a1a2e;
+      width: 11px;
+      height: 11px;
+      background: #2a1a0e;
       border-radius: 50%;
       top: 50%;
       left: 50%;
@@ -120,7 +120,7 @@
       document.getElementById('pupilRight'),
     ];
 
-    const MAX_TRAVEL = 7;
+    const MAX_TRAVEL = 6;
 
     document.addEventListener('mousemove', (e) => {
       pupils.forEach((pupil) => {
