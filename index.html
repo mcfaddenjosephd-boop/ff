@@ -8,31 +8,15 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: #1a1a2e;
-      font-family: 'Georgia', serif;
-      color: #e0e0e0;
-    }
-
-    h1 {
-      font-size: 1.2rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-      opacity: 0.5;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
     }
 
     .photo-wrap {
       position: relative;
-      width: 350px;
-      height: 350px;
-      border-radius: 50%;
-      overflow: hidden;
-      box-shadow: 0 0 60px rgba(100, 180, 255, 0.25);
+      width: 100vw;
+      height: 100vh;
     }
 
     .photo-wrap img {
@@ -51,8 +35,8 @@
 
     .eye {
       position: absolute;
-      width: 38px;
-      height: 18px;
+      width: 7vw;
+      height: 3.5vw;
       background: white;
       border-radius: 50%;
       overflow: hidden;
@@ -60,14 +44,14 @@
       opacity: 0.9;
     }
 
-    /* Tuned to match the glasses-wearing face in FF.png */
+    /* Tuned to FF.png — tweak by 1–2% if slightly off */
     .eye-left  { top: 36%; left: 34%; }
     .eye-right { top: 36%; left: 57%; }
 
     .pupil {
       position: absolute;
-      width: 11px;
-      height: 11px;
+      width: 2.5vw;
+      height: 2.5vw;
       background: #2a1a0e;
       border-radius: 50%;
       top: 50%;
@@ -79,25 +63,16 @@
     .pupil::after {
       content: '';
       position: absolute;
-      width: 4px;
-      height: 4px;
+      width: 35%;
+      height: 35%;
       background: rgba(255, 255, 255, 0.7);
       border-radius: 50%;
-      top: 2px;
-      left: 2px;
-    }
-
-    p.hint {
-      margin-top: 1.5rem;
-      font-size: 0.8rem;
-      opacity: 0.3;
-      letter-spacing: 0.15em;
+      top: 15%;
+      left: 15%;
     }
   </style>
 </head>
 <body>
-
-  <h1>I see you</h1>
 
   <div class="photo-wrap">
     <img src="FF.png" alt="Headshot" />
@@ -112,15 +87,13 @@
     </div>
   </div>
 
-  <p class="hint">move your mouse around</p>
-
   <script>
     const pupils = [
       document.getElementById('pupilLeft'),
       document.getElementById('pupilRight'),
     ];
 
-    const MAX_TRAVEL = 6;
+    const MAX_TRAVEL = window.innerWidth * 0.012;
 
     document.addEventListener('mousemove', (e) => {
       pupils.forEach((pupil) => {
