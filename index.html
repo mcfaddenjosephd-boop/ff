@@ -22,9 +22,10 @@
     .photo-wrap img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: center top;
+      object-fit: contain;        /* ← changed from cover to contain so full face shows */
+      object-position: center center;
       display: block;
+      background: #c8d4d4;        /* matches the photo background color */
     }
 
     .eyes-layer {
@@ -35,8 +36,8 @@
 
     .eye {
       position: absolute;
-      width: 7vw;
-      height: 3.5vw;
+      width: 4vw;
+      height: 2vw;
       background: white;
       border-radius: 50%;
       overflow: hidden;
@@ -44,14 +45,14 @@
       opacity: 0.9;
     }
 
-    /* Tuned to FF.png — tweak by 1–2% if slightly off */
-    .eye-left  { top: 36%; left: 34%; }
-    .eye-right { top: 36%; left: 57%; }
+    /* Moved eyes DOWN to sit on the actual eyes, not the forehead */
+    .eye-left  { top: 52%; left: 37%; }
+    .eye-right { top: 52%; left: 55%; }
 
     .pupil {
       position: absolute;
-      width: 2.5vw;
-      height: 2.5vw;
+      width: 1.4vw;
+      height: 1.4vw;
       background: #2a1a0e;
       border-radius: 50%;
       top: 50%;
@@ -93,7 +94,7 @@
       document.getElementById('pupilRight'),
     ];
 
-    const MAX_TRAVEL = window.innerWidth * 0.012;
+    const MAX_TRAVEL = window.innerWidth * 0.008;
 
     document.addEventListener('mousemove', (e) => {
       pupils.forEach((pupil) => {
@@ -115,7 +116,6 @@
       });
     });
 
-    // Mobile touch support
     document.addEventListener('touchmove', (e) => {
       const touch = e.touches[0];
       document.dispatchEvent(new MouseEvent('mousemove', {
